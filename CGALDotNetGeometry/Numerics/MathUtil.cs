@@ -442,25 +442,25 @@ namespace CGALDotNetGeometry.Numerics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsFinite(float f)
         {
-            return float.IsFinite(f);
+            return MathUtil2.IsFinite(f);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNotFinite(float f)
         {
-            return !float.IsFinite(f);
+            return !MathUtil2.IsFinite(f);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsFinite(double f)
         {
-            return double.IsFinite(f);
+            return MathUtil2.IsFinite(f);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsNotFinite(double f)
         {
-            return !double.IsFinite(f);
+            return !MathUtil2.IsFinite(f);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -962,6 +962,17 @@ namespace CGALDotNetGeometry.Numerics
                 m_factorialTable[i] = f;
             }
         }
+    }
 
+    public class MathUtil2
+    {
+        public static bool IsFinite(float x)
+        {
+            return !float.IsInfinity(x) && !float.IsNaN(x);
+        }
+        public static bool IsFinite(double x)
+        {
+            return !double.IsInfinity(x) && !double.IsNaN(x);
+        }
     }
 }
